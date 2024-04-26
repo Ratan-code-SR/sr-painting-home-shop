@@ -5,6 +5,7 @@ import { MdAddPhotoAlternate, MdOutlineEmail } from "react-icons/md";
 import { TbPasswordFingerprint } from "react-icons/tb";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../components/provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 
 
@@ -25,8 +26,16 @@ const Register = () => {
     const onSubmit = (data) => {
         const email = data.email
         const password = data.password
+        const displayName = data.name;
+        const photoURL = data.photoURL;
         emailPasswordLogin(email,password)
         .then(result =>{
+
+            updateProfile(result.user, {
+                displayName:displayName,
+                photoURL:photoURL
+
+            });
             console.log(result);
         })
         .catch(error=> {
@@ -89,7 +98,7 @@ const Register = () => {
                         {errors.password && <small className='text-red-400'>  Password Must have an Uppercase and a Lowercase letter</small>}
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary">Login</button>
+                        <button className="btn btn-success">Register</button>
                     </div>
                 </form>
                 <div className='text-center my-0'>
