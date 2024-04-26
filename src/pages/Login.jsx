@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaRegEyeSlash, FaRegEye, FaUser } from "react-icons/fa";
 import { useForm } from "react-hook-form"
 import { MdAddPhotoAlternate, MdOutlineEmail } from "react-icons/md";
 import { TbPasswordFingerprint } from "react-icons/tb";
 import { Link } from 'react-router-dom';
-
+import { AuthContext } from '../components/provider/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
+    const { googleLogin } = useContext(AuthContext)
     const {
         register,
         handleSubmit,
-        watch,
         reset,
         formState: { errors },
     } = useForm()
@@ -19,8 +21,22 @@ const Login = () => {
     const onSubmit = (data) => {
         console.log(data.email)
         console.log(data.password)
+        reset()
 
     }
+
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                toast.success("Google Login successfully!!")
+                console.log(result);
+            })
+            .catch(error => {
+                console.log(error.massage);
+                toast(error.massage)
+            })
+    }
+
     return (
         <div>
             <div className="hero  bg-base-200">
@@ -62,22 +78,22 @@ const Login = () => {
                             <span className="text-xl">or</span>
                             <p className="border-b border-black"> </p>
                         </div>
-                        <div className='flex justify-center items-center gap-5'>
-                            <button>
-                                <img className='w-[50px]' src="google.png" alt="" />
-                            </button>
-                            <button>
-                                <img className='w-[33px]' src="github.png" alt="" />
-                            </button>
-                        </div>
-                    </form>
 
+                    </form>
+                    <div className='flex justify-center items-center gap-5'>
+                        <button onClick={handleGoogleLogin}>
+                            <img className='w-[50px]' src="google.png" alt="" />
+                        </button>
+                        <button>
+                            <img className='w-[33px]' src="github.png" alt="" />
+                        </button>
+                    </div>
 
                     <div className='text-center my-0'>
                         <p>You have no account <span className='underline font-bold'><Link to="/register">Register Now</Link></span></p>
                     </div>
                 </div>
-
+                <ToastContainer />
             </div>
         </div>
     );
