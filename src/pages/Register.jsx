@@ -46,12 +46,12 @@ const Register = () => {
     }
 
     return (
-        <div className="hero  bg-base-200">
-            <div className=" w-[600px] border p-0 border-black bg-green-500 ">
-                <h1 className='text-center text-3xl'>Register  Now</h1>
+        <div className="hero ">
+            <div className=" md:w-[600px]  lg:w-[600px] p-2 w-full  ">
+                <h1 className=' md:text-5xl lg:text-5xl  p-4 text-center font-bold from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent'>Register  Now</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     <div className="form-control">
-                        <label className="input input-bordered flex items-center gap-2">
+                        <label className="input input-bordered bg-gray-100 flex items-center gap-2">
                             <FaUser />
                             <input
                                 {...register("name", { required: true })}
@@ -62,7 +62,7 @@ const Register = () => {
                         {errors.name && <small className='text-red-400'>This field is required</small>}
                     </div>
                     <div className="form-control">
-                        <label className="input input-bordered flex items-center gap-2">
+                        <label className="input bg-gray-100  input-bordered flex items-center gap-2">
                             <MdOutlineEmail />
                             <input
                                 {...register("email", { required: true })}
@@ -74,7 +74,7 @@ const Register = () => {
                         {errors.email && <small className='text-red-400'>This field is required</small>}
                     </div>
                     <div className="form-control">
-                        <label className="input input-bordered flex items-center gap-2">
+                        <label className="input bg-gray-100  input-bordered flex items-center gap-2">
                             <MdAddPhotoAlternate />
                             <input
                                 {...register("photoURL", { required: true })}
@@ -86,13 +86,13 @@ const Register = () => {
                         {errors.photoURL && <small className='text-red-400'>This field is required</small>}
                     </div>
                     <div className="form-control">
-                        <label className="relative input input-bordered flex items-center gap-2">
+                        <label className="relative bg-gray-100  input input-bordered flex items-center gap-2">
                             <TbPasswordFingerprint />
                             <span onClick={() => setShowPassword(!showPassword)} className='absolute right-2'>{showPassword ? <FaRegEye /> : <FaRegEyeSlash />}</span>
                             <input
                                 {...register("password", { required: true })}
                                 {...register("password", { pattern: /^(?=.*[a-z])(?=.*[A-Z]).+$/ })}
-                                type={`${showPassword? "text": "password"}`}
+                                type={`${showPassword ? "text" : "password"}`}
                                 className="grow"
                                 placeholder="password"
                             />
@@ -101,10 +101,10 @@ const Register = () => {
                         {errors.password && <small className='text-red-400'>  Password Must have an Uppercase and a Lowercase letter</small>}
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-success">Register</button>
+                        <button className="bg-gradient-to-r from-violet-600  to-pink-500 p-3 text-white rounded-md font-bold">Register</button>
                     </div>
                 </form>
-                <div className='text-center my-0'>
+                <div className='text-center my-2 text-gray-200'>
                     <p>You have already account <span className='underline font-bold'><Link to="/login">Login Now</Link></span></p>
                 </div>
             </div>

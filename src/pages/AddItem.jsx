@@ -1,6 +1,7 @@
 
 import { useContext, useState } from "react";
 import { AuthContext } from "../components/provider/AuthProvider";
+import { data } from "autoprefixer";
 
 const AddItem = () => {
     const { user } = useContext(AuthContext)
@@ -26,8 +27,23 @@ const AddItem = () => {
         const customization = customize;
         const email = user.email;
         const displayName = user.displayName;
-        const productInfo = { image, item_name, subcategory_Name, price, rating, time, short_description, stock_status, customization,email,displayName}
+        const productInfo = { image, item_name, subcategory_Name, price, rating, time, short_description, stock_status, customization, email, displayName }
 
+        fetch("http://localhost:5000/addItem", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+
+            },
+            body: JSON.stringify(productInfo),
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    alert("card added successfully!")
+                }
+            })
         console.log(productInfo);
         form.reset()
     }
@@ -63,7 +79,7 @@ const AddItem = () => {
                             <label htmlFor="rating" className="text-sm">Rating</label>
                             <input name="rating" required type="text" placeholder="Rating" className="w-full p-2 focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
                         </div>
-                 
+
 
                         <div className="col-span-full sm:col-span-3">
                             <label htmlFor="time" className="text-sm">Processing Time</label>
@@ -71,10 +87,11 @@ const AddItem = () => {
                         </div>
 
 
-                 
+
                         <div className="col-span-full sm:col-span-3">
                             <label htmlFor="stock_status" className="text-sm">Stock Status </label>
-                            <select onChange={handleStockChange}  name="stock_status" className="w-full  p-2 focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" >
+                            <select onChange={handleStockChange} name="stock_status" className="w-full  p-2 focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" >
+                                <option value="select">select</option>
                                 <option value="In stock">In stock</option>
                                 <option value="Made to order">Made to order</option>
                             </select>
@@ -82,16 +99,17 @@ const AddItem = () => {
 
                         <div className="col-span-full sm:col-span-3">
                             <label htmlFor="customization" className="text-sm">Customization </label>
-                            <select onChange={handleCustomizationChange}  name="customization" className="w-full  p-2 focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" >
+                            <select onChange={handleCustomizationChange} name="customization" className="w-full  p-2 focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" >
+                                <option value="select">select</option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select>
                         </div>
-                     
-                     
+
+
                         <div className="col-span-full">
                             <label htmlFor="short_description" className="text-sm">Description</label>
-                            <textarea name="short_description"  required placeholder="description" className="w-full p-2 focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"></textarea>
+                            <textarea name="short_description" required placeholder="description" className="w-full p-2 focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"></textarea>
                         </div>
 
                         <div className="col-span-full">

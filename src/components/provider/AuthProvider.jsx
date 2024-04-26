@@ -23,26 +23,28 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const logOutUser = ()=>{
+    const logOutUser = () => {
         setLoading(true)
         return signOut(auth)
-     
+
     }
 
     useEffect(() => {
-        const subscribe = onAuthStateChanged(auth, (currentUser) => {
-            if (currentUser) {
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+          
                 setUser(currentUser)
                 setLoading(false)
-            }
+            
         })
-        return () => subscribe()
+        return () => {
+            unSubscribe()
+        }
     }, [])
 
     console.log(user);
 
 
-    const userInfo = {logOutUser, emailPasswordRegister, googleLogin, emailPasswordLogin, user, setUser }
+    const userInfo = { logOutUser, emailPasswordRegister, googleLogin, emailPasswordLogin, user, setUser }
     return (
         <AuthContext.Provider value={userInfo}>
             {children}

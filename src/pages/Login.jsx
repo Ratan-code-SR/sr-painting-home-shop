@@ -47,9 +47,9 @@ const Login = () => {
 
     return (
         <div>
-            <div className="hero  bg-base-200">
-                <div className=" w-[600px] border p-0 border-black bg-green-500 ">
-                    <h1 className='text-center text-3xl'>Login Now</h1>
+            <div className="hero ">
+                <div className=" md:w-[600px]  bg-[#140c355e] lg:w-[600px] p-2 w-full  ">
+                <h1 className=' text-5xl p-4 text-center font-bold from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent'>Login  Now</h1>
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
                         <div className="form-control">
@@ -80,12 +80,12 @@ const Login = () => {
                             {errors.password && <small className='text-red-400'>  Password Must have an Uppercase and a Lowercase letter</small>}
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Login</button>
+                        <button className="bg-gradient-to-r from-violet-600  to-pink-500 p-3 text-white rounded-md font-bold">Login</button>
                         </div>
                         <div className="flex items-center gap-3">
-                            <p className="border-b border-black"></p>
-                            <span className="text-xl">or</span>
-                            <p className="border-b border-black"> </p>
+                            <p className="border-b border-white"></p>
+                            <span className="text-xl text-white">or</span>
+                            <p className="border-b border-white"> </p>
                         </div>
 
                     </form>
@@ -98,7 +98,7 @@ const Login = () => {
                         </button>
                     </div>
 
-                    <div className='text-center my-0'>
+                    <div className='text-center my-0 text-gray-200 py-2'>
                         <p>You have no account <span className='underline font-bold'><Link to="/register">Register Now</Link></span></p>
                     </div>
                 </div>
