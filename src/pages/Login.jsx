@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import { FaRegEyeSlash, FaRegEye, FaUser } from "react-icons/fa";
+import React, { useContext, useState } from 'react';
+import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import { useForm } from "react-hook-form"
-import { MdAddPhotoAlternate, MdOutlineEmail } from "react-icons/md";
+import {  MdOutlineEmail } from "react-icons/md";
 import { TbPasswordFingerprint } from "react-icons/tb";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../components/provider/AuthProvider';
@@ -10,7 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
-    const { googleLogin } = useContext(AuthContext)
+    const [showPassword, setShowPassword] = useState(false)
+    const { googleLogin, emailPasswordLogin } = useContext(AuthContext)
     const {
         register,
         handleSubmit,
@@ -19,10 +20,18 @@ const Login = () => {
     } = useForm()
 
     const onSubmit = (data) => {
+        const email = data.email;
+        const password = data.password;
         console.log(data.email)
         console.log(data.password)
+        emailPasswordLogin(email, password)
+            .then(result => {
+                toast.success("User login successfully!")
+            })
+            .catch(error => {
+                toast.error(error.message)
+            })
         reset()
-
     }
 
     const handleGoogleLogin = () => {
@@ -32,8 +41,7 @@ const Login = () => {
                 console.log(result);
             })
             .catch(error => {
-                console.log(error.massage);
-                toast(error.massage)
+                toast.error(error.message)
             })
     }
 
@@ -58,12 +66,13 @@ const Login = () => {
                         </div>
 
                         <div className="form-control">
-                            <label className="input input-bordered flex items-center gap-2">
+                            <label className="relative input input-bordered flex items-center gap-2">
                                 <TbPasswordFingerprint />
+                                <span onClick={() => setShowPassword(!showPassword)} className='absolute right-2'>{showPassword ? <FaRegEye /> : <FaRegEyeSlash />}</span>
                                 <input
                                     {...register("password", { required: true })}
                                     {...register("password", { pattern: /^(?=.*[a-z])(?=.*[A-Z]).+$/ })}
-                                    type="password"
+                                    type={`${showPassword? "text": "password"}`}
                                     className="grow"
                                     placeholder="password"
                                 />

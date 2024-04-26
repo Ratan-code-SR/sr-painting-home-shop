@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaRegEyeSlash, FaRegEye, FaUser } from "react-icons/fa";
 import { useForm } from "react-hook-form"
 import { MdAddPhotoAlternate, MdOutlineEmail } from "react-icons/md";
@@ -6,19 +6,18 @@ import { TbPasswordFingerprint } from "react-icons/tb";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../components/provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
-
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 
 const Register = () => {
-    const {emailPasswordLogin} = useContext(AuthContext)
-    // console.log(emailPasswordLogin);
+    const [showPassword, setShowPassword] = useState(false)
+    const { emailPasswordRegister } = useContext(AuthContext)
     const {
         register,
         handleSubmit,
-
         reset,
         formState: { errors },
     } = useForm()
@@ -28,21 +27,24 @@ const Register = () => {
         const password = data.password
         const displayName = data.name;
         const photoURL = data.photoURL;
-        emailPasswordLogin(email,password)
-        .then(result =>{
+        emailPasswordRegister(email, password)
+            .then(result => {
 
-            updateProfile(result.user, {
-                displayName:displayName,
-                photoURL:photoURL
+                updateProfile(result.user, {
+                    displayName: displayName,
+                    photoURL: photoURL
 
-            });
-            console.log(result);
-        })
-        .catch(error=> {
-            console.log(error.message);
-        })
+                });
+                console.log(result);
+                toast.success("User register successfully!")
+            })
+            .catch(error => {
+                console.log(error.message);
+                toast.error(error.message)
+            })
         reset()
     }
+
     return (
         <div className="hero  bg-base-200">
             <div className=" w-[600px] border p-0 border-black bg-green-500 ">
@@ -84,12 +86,13 @@ const Register = () => {
                         {errors.photoURL && <small className='text-red-400'>This field is required</small>}
                     </div>
                     <div className="form-control">
-                        <label className="input input-bordered flex items-center gap-2">
+                        <label className="relative input input-bordered flex items-center gap-2">
                             <TbPasswordFingerprint />
+                            <span onClick={() => setShowPassword(!showPassword)} className='absolute right-2'>{showPassword ? <FaRegEye /> : <FaRegEyeSlash />}</span>
                             <input
                                 {...register("password", { required: true })}
                                 {...register("password", { pattern: /^(?=.*[a-z])(?=.*[A-Z]).+$/ })}
-                                type="password"
+                                type={`${showPassword? "text": "password"}`}
                                 className="grow"
                                 placeholder="password"
                             />
@@ -105,7 +108,7 @@ const Register = () => {
                     <p>You have already account <span className='underline font-bold'><Link to="/login">Login Now</Link></span></p>
                 </div>
             </div>
-
+            <ToastContainer />
         </div>
     );
 };
