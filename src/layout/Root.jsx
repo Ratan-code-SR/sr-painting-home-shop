@@ -1,10 +1,17 @@
 import React from 'react';
+import Nav from '../components/headers/Nav';
+import { Outlet } from 'react-router-dom';
 
 const Root = () => {
     return (
         <div>
-            
-            <h1>i am home </h1>
+            <header>
+                <Nav />
+            </header>
+            <main>
+                <Outlet />
+            </main>
+            <footer></footer>
         </div>
     );
 };
