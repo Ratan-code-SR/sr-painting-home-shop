@@ -1,9 +1,11 @@
-import { GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { createContext } from "react";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createContext, useEffect, useState } from "react";
 import auth from "../../firebase/firebase.config"
 
 export const AuthContext = createContext(null)
 const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
 
     // emailPassword register
     const emailPasswordRegister = (email, password) => {
@@ -15,11 +17,32 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, provider)
     }
 
+
     // email password login
     const emailPasswordLogin = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
-    const userInfo = { emailPasswordRegister, googleLogin, emailPasswordLogin }
+
+    const logOutUser = ()=>{
+        setLoading(true)
+        return signOut(auth)
+     
+    }
+
+    useEffect(() => {
+        const subscribe = onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser) {
+                setUser(currentUser)
+                setLoading(false)
+            }
+        })
+        return () => subscribe()
+    }, [])
+
+    console.log(user);
+
+
+    const userInfo = {logOutUser, emailPasswordRegister, googleLogin, emailPasswordLogin, user, setUser }
     return (
         <AuthContext.Provider value={userInfo}>
             {children}

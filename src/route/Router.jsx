@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
+import AddItem from "../pages/AddItem";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register />
+            },
+            {
+                path: "/addItem",
+                element: <AddItem/>
             }
         ]
     },

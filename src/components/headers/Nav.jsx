@@ -1,11 +1,25 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 
 const Nav = () => {
+    const { user, logOutUser } = useContext(AuthContext)
+
+    const handleLogOutUser = () => {
+        logOutUser()
+            .then(result => {
+                toast.success("User logout successfully!")
+            })
+            .catch(error => {
+                toast.error(error.message)
+            })
+    }
     const navLinks = <>
         <NavLink to="/" className="ml-3 font-semibold">Home</NavLink>
         <NavLink to="/allArts" className="ml-3 font-semibold">All Art & craft Items</NavLink>
-        <NavLink  to="/allArts" className="ml-3 font-semibold">Add Craft Item</NavLink>
+        <NavLink to="/addItem" className="ml-3 font-semibold">Add Craft Item</NavLink>
         <NavLink to="/allArts" className="ml-3 font-semibold">My Art&Craft List</NavLink>
         <NavLink to="/allArts" className="ml-3 font-semibold">My Art&Craft List</NavLink>
     </>
@@ -38,8 +52,19 @@ const Nav = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to="/login" className="ml-3">Login</Link>
-                <Link to="/register" className="ml-3">SignUp</Link>
+                {
+                    user ? <>
+                         <button onClick={handleLogOutUser}>LogOut</button>
+                    </>
+                        :
+                        <>
+
+                            <Link to="/login" className="ml-3">Login</Link>
+                            <Link to="/register" className="ml-3">SignUp</Link>
+                        </>
+                }
+
+
             </div>
         </div>
     );
