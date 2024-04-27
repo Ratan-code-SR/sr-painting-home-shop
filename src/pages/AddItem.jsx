@@ -1,7 +1,8 @@
 
 import { useContext, useState } from "react";
 import { AuthContext } from "../components/provider/AuthProvider";
-import { data } from "autoprefixer";
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
 
 const AddItem = () => {
     const { user } = useContext(AuthContext)
@@ -38,12 +39,17 @@ const AddItem = () => {
             body: JSON.stringify(productInfo),
         })
             .then(res => res.json())
-            .then(data => {
+            .then((data) => {
                 console.log(data);
                 if (data.insertedId) {
-                    alert("card added successfully!")
+                    Swal.fire({
+                        title: 'success!',
+                        text: 'Item added successful.',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
                 }
-            })
+            });
         console.log(productInfo);
         form.reset()
     }

@@ -19,6 +19,8 @@ Click here for see my website:
 - [React-Hooks-Form](https://react-hook-form.com/)
 - [React-Aos-package](https://michalsnik.github.io/aos/)
 - [Swiperjs](https://swiperjs.com/)
+- [sweetalert2](https://sweetalert2.github.io/)
+
 
 
 ##  I have implemented Authentication system this package

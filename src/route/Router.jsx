@@ -9,6 +9,8 @@ import Login from "../pages/Login";
 import AddItem from "../pages/AddItem";
 import Home from "../pages/home/Home";
 import PrivateRoute from "../components/protected/PrivateRoute";
+import AllArtAndCraftItems from "../pages/All_Art_craft_Items.jsx/AllArtAndCraftItems";
+
 
 const router = createBrowserRouter([
     {
@@ -19,7 +21,8 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />,
-                loader: () => fetch("https://sr-painting-server.vercel.app/addItem")
+
+                loader: () => fetch("https://sr-painting-server.vercel.app/items")
 
             },
             {
@@ -33,6 +36,11 @@ const router = createBrowserRouter([
             {
                 path: "/addItem",
                 element: <PrivateRoute> <AddItem /></PrivateRoute>
+            },
+            {
+                path: "/AllArtAndCraftItems",
+                element: <AllArtAndCraftItems />,
+               loader:()=> fetch("https://sr-painting-server.vercel.app/items")
             },
 
         ]
