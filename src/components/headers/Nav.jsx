@@ -30,8 +30,8 @@ const Nav = () => {
         <NavLink to="/" className="ml-3 font-semibold ">Home</NavLink>
         <NavLink to="/AllArtAndCraftItems" className="ml-3 font-semibold ">All Art & craft Items</NavLink>
         <NavLink to="/addItem" className="ml-3 font-semibold ">Add Craft Item</NavLink>
-        <NavLink to="/allArts" className="ml-3 font-semibold">My Art&Craft List</NavLink>
-        <NavLink to="/allArts" className="ml-3 font-semibold ">My Art&Craft List</NavLink>
+        <NavLink to="/MyArtCraftList" className="ml-3 font-semibold">My Art&Craft List</NavLink>
+
     </>
     return (
         <div className="navbar  ">

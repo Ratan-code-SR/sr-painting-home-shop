@@ -2,7 +2,7 @@
 
 
 const AllArtCraftItemsTable = ({ item }) => {
-    const {item_name, image, price, subcategory_Name } = item;
+    const { item_name, image, price, subcategory_Name } = item;
     return (
         <>
             <tr >

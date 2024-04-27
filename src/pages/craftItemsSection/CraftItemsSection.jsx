@@ -2,7 +2,7 @@ import React from 'react';
 import CraftItemsCard from './CraftItemsCard';
 
 const CraftItemsSection = ({ data }) => {
-    console.log(data.slice(1, 6));
+    // console.log(data.slice(1, 6));
     return (
         <div>
 
