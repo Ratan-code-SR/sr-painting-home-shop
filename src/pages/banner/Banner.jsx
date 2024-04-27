@@ -94,7 +94,7 @@ export default function Banner() {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <div className="hero h-[400px]" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
+                    <div className="hero h-[400px] z-0" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
@@ -107,7 +107,7 @@ export default function Banner() {
                 </SwiperSlide>
                 
                 <SwiperSlide>
-                    <div className="hero h-[400px]" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
+                    <div className="hero h-[400px] z-0" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
@@ -120,7 +120,7 @@ export default function Banner() {
                 </SwiperSlide>
                 
                 <SwiperSlide>
-                    <div className="hero h-[400px]" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
+                    <div className="hero h-[400px] z-0" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
@@ -133,7 +133,7 @@ export default function Banner() {
                 </SwiperSlide>
                 
                 <SwiperSlide>
-                    <div className="hero h-[400px]" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
+                    <div className="hero h-[400px] z-0" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
@@ -146,7 +146,7 @@ export default function Banner() {
                 </SwiperSlide>
                 
                 <SwiperSlide>
-                    <div className="hero h-[400px]" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
+                    <div className="hero h-[400px] z-0" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">

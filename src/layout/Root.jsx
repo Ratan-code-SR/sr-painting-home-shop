@@ -6,14 +6,14 @@ import Footer from '../components/footer/Footer';
 const Root = () => {
     return (
         <div className='   '>
-            <header className=' mx-auto '>
+            <header className=' mx-auto '  >
                 <Nav />
             </header>
-            <main className=' container mx-auto px-4'>
+            <main className=' container mx-auto px-4' style={{ backgroundImage: 'url(bg.svg)' }}>
                 <Outlet />
             </main>
-            <footer className=' container mx-auto'>
-                <Footer/>
+            <footer className=' container mx-auto' style={{ backgroundImage: 'url(bg.svg)' }}>
+                <Footer />
             </footer>
         </div>
     );

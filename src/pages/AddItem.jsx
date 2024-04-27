@@ -49,7 +49,7 @@ const AddItem = () => {
     }
 
     return (
-        <section className="p-6  bg-gray-400">
+        <section className="p-6  bg-gradient-to-r from-violet-600  to-pink-500">
             <form onSubmit={handleAddProductItem} className="container flex flex-col mx-auto space-y-12">
                 <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-50">
                     <div className="space-y-2 col-span-full lg:col-span-1">
@@ -113,7 +113,7 @@ const AddItem = () => {
                         </div>
 
                         <div className="col-span-full">
-                            <input className="btn btn-success w-full" type="submit" value="Add Product" />
+                            <input className="bg-gradient-to-r from-[#7c3aed91]  to-pink-500 p-3  text-white rounded-md font-bold w-full btn" type="submit" value="Add Product" />
                         </div>
                     </div>
                 </fieldset>

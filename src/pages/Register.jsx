@@ -51,7 +51,7 @@ const Register = () => {
                 <h1 className=' md:text-5xl lg:text-5xl  p-4 text-center font-bold from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent'>Register  Now</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     <div className="form-control">
-                        <label className="input input-bordered bg-gray-100 flex items-center gap-2">
+                        <label className="input input-bordered  flex items-center gap-2">
                             <FaUser />
                             <input
                                 {...register("name", { required: true })}
@@ -62,7 +62,7 @@ const Register = () => {
                         {errors.name && <small className='text-red-400'>This field is required</small>}
                     </div>
                     <div className="form-control">
-                        <label className="input bg-gray-100  input-bordered flex items-center gap-2">
+                        <label className="input  input-bordered flex items-center gap-2">
                             <MdOutlineEmail />
                             <input
                                 {...register("email", { required: true })}
@@ -74,7 +74,7 @@ const Register = () => {
                         {errors.email && <small className='text-red-400'>This field is required</small>}
                     </div>
                     <div className="form-control">
-                        <label className="input bg-gray-100  input-bordered flex items-center gap-2">
+                        <label className="input   input-bordered flex items-center gap-2">
                             <MdAddPhotoAlternate />
                             <input
                                 {...register("photoURL", { required: true })}
@@ -86,7 +86,7 @@ const Register = () => {
                         {errors.photoURL && <small className='text-red-400'>This field is required</small>}
                     </div>
                     <div className="form-control">
-                        <label className="relative bg-gray-100  input input-bordered flex items-center gap-2">
+                        <label className="relative   input input-bordered flex items-center gap-2">
                             <TbPasswordFingerprint />
                             <span onClick={() => setShowPassword(!showPassword)} className='absolute right-2'>{showPassword ? <FaRegEye /> : <FaRegEyeSlash />}</span>
                             <input

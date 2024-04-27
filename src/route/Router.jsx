@@ -8,6 +8,7 @@ import Register from "../pages/Register";
 import Login from "../pages/Login";
 import AddItem from "../pages/AddItem";
 import Home from "../pages/home/Home";
+import PrivateRoute from "../components/protected/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -18,8 +19,8 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />,
-                loader: ()=> fetch("https://sr-painting-server.vercel.app/addItem")
-                
+                loader: () => fetch("https://sr-painting-server.vercel.app/addItem")
+
             },
             {
                 path: "/login",
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/addItem",
-                element: <AddItem />
+                element: <PrivateRoute> <AddItem /></PrivateRoute>
             },
 
         ]

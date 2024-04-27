@@ -3,8 +3,8 @@ import React from 'react';
 const Best_paintings = () => {
     return (
         <div>
-            <h1 className='text-center text-black'>Our Best Painting</h1>
-            <section className="p-4 lg:p-8 dark:bg-gray-100 text-black dark:text-gray-800">
+            <h1 className='text-center text-gray-200'>Our Best Painting</h1>
+            <section className="p-4 lg:p-8 dark:bg-gray-100 text-gray-200 dark:text-gray-800">
                 <div className="container mx-auto space-y-12">
                     <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
                         <img src="https://i.ibb.co/Zxw5Fw6/images-11.jpg" alt="" className="h-80 dark:bg-gray-500 aspect-video" />

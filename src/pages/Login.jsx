@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import { useForm } from "react-hook-form"
-import {  MdOutlineEmail } from "react-icons/md";
+import { MdOutlineEmail } from "react-icons/md";
 import { TbPasswordFingerprint } from "react-icons/tb";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../components/provider/AuthProvider';
@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
-    const { googleLogin, emailPasswordLogin } = useContext(AuthContext)
+    const { googleLogin, emailPasswordLogin, loading } = useContext(AuthContext)
     const {
         register,
         handleSubmit,
@@ -27,6 +27,9 @@ const Login = () => {
         emailPasswordLogin(email, password)
             .then(result => {
                 toast.success("User login successfully!")
+                if (loading) {
+                    return <div className="w-16 h-16 flex justify-center items-center my-20 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
+                }
             })
             .catch(error => {
                 toast.error(error.message)
@@ -39,6 +42,9 @@ const Login = () => {
             .then(result => {
                 toast.success("Google Login successfully!!")
                 console.log(result);
+                if (loading) {
+                    return <div className="w-16 h-16 flex justify-center items-center my-20 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
+                }
             })
             .catch(error => {
                 toast.error(error.message)
@@ -49,7 +55,7 @@ const Login = () => {
         <div>
             <div className="hero ">
                 <div className=" md:w-[600px]  bg-[#140c355e] lg:w-[600px] p-2 w-full  ">
-                <h1 className=' text-5xl p-4 text-center font-bold from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent'>Login  Now</h1>
+                    <h1 className=' text-5xl p-4 text-center font-bold from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent'>Login  Now</h1>
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
                         <div className="form-control">
@@ -72,7 +78,7 @@ const Login = () => {
                                 <input
                                     {...register("password", { required: true })}
                                     {...register("password", { pattern: /^(?=.*[a-z])(?=.*[A-Z]).+$/ })}
-                                    type={`${showPassword? "text": "password"}`}
+                                    type={`${showPassword ? "text" : "password"}`}
                                     className="grow"
                                     placeholder="password"
                                 />
@@ -80,7 +86,7 @@ const Login = () => {
                             {errors.password && <small className='text-red-400'>  Password Must have an Uppercase and a Lowercase letter</small>}
                         </div>
                         <div className="form-control mt-6">
-                        <button className="bg-gradient-to-r from-violet-600  to-pink-500 p-3 text-white rounded-md font-bold">Login</button>
+                            <button className="bg-gradient-to-r from-violet-600  to-pink-500 p-3 text-white rounded-md font-bold">Login</button>
                         </div>
                         <div className="flex items-center gap-3">
                             <p className="border-b border-white"></p>
