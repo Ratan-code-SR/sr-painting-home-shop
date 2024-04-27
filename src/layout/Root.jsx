@@ -12,7 +12,7 @@ const Root = () => {
             <main className=' container mx-auto px-4'>
                 <Outlet />
             </main>
-            <footer className=' container mx-auto' style={{ backgroundImage: 'url(bg.svg)' }}>
+            <footer className=' container mx-auto' style={{ backgroundImage: 'url(../bg.svg)' }}>
                 <Footer />
             </footer>
         </div>

@@ -49,7 +49,7 @@ const Nav = () => {
                     </ul>
                 </div>
                 <div className="flex items-center gap-1">
-                    <img className="md:w-[50px] lg:w-[50px] w-[25px] h-[25px] md:h-[50px] lg:h-[50px] rounded-full" src="logo.jpg" alt="" />
+                    <img className="md:w-[50px] lg:w-[50px] w-[25px] h-[25px] md:h-[50px] lg:h-[50px] rounded-full" src="../logo.jpg" alt="" />
                     <h1 className="text-3xl"><span className="-ml-1 text-green-500 font-bold text-3xl italic">P</span>ainting</h1>
                 </div>
             </div>

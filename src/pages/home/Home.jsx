@@ -10,10 +10,11 @@ import ScrollToTop from "react-scroll-to-top";
 import { AuthContext } from '../../components/provider/AuthProvider';
 
 const Home = () => {
-    const data = useLoaderData()
     const { loading } = useContext(AuthContext)
+
+    const data = useLoaderData()
     if (loading) {
-       return <div className="w-16 h-16 flex justify-center items-center my-20 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
+        return <div className="w-16 h-16 flex justify-center items-center my-20 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
     }
     return (
         <div>
