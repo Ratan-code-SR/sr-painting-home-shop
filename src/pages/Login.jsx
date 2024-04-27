@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
-    const { googleLogin, emailPasswordLogin, loading } = useContext(AuthContext)
+    const { googleLogin, emailPasswordLogin, loading, gitHubLogin } = useContext(AuthContext)
     const {
         register,
         handleSubmit,
@@ -47,6 +47,20 @@ const Login = () => {
                 }
             })
             .catch(error => {
+                toast.error(error.message)
+            })
+    }
+    const handleGithubLogin = () => {
+        gitHubLogin()
+            .then(result => {
+                toast.success("Github Login successfully!!")
+                console.log(result);
+                if (loading) {
+                    return <div className="w-16 h-16 flex justify-center items-center my-20 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
+                }
+            })
+            .catch(error => {
+                console.log(error.message);
                 toast.error(error.message)
             })
     }
@@ -99,7 +113,7 @@ const Login = () => {
                         <button onClick={handleGoogleLogin}>
                             <img className='w-[50px]' src="google.png" alt="" />
                         </button>
-                        <button>
+                        <button onClick={handleGithubLogin}>
                             <img className='w-[33px]' src="github.png" alt="" />
                         </button>
                     </div>
