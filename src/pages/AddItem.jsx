@@ -30,7 +30,7 @@ const AddItem = () => {
         const displayName = user.displayName;
         const productInfo = { image, item_name, subcategory_Name, price, rating, time, short_description, stock_status, customization, email, displayName }
 
-        fetch("http://localhost:5000/addItem", {
+        fetch("https://sr-painting-server.vercel.app/addItem", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
