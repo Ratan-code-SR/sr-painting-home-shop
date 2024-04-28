@@ -13,7 +13,7 @@ const CraftItemsSection = ({ data }) => {
                         <div className=" space-y-2 lg:col-span-5">
                             <h3 className="text-2xl font-semibold sm:text-4xl e from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent">{data[0].item_name}</h3>
                           
-                            <p className='text-gray-200'>{data[0].short_description}</p>
+                            <p className=''>{data[0].short_description}</p>
                             <button className="bg-gradient-to-r from-violet-600  to-pink-500 p-3 w-full text-white rounded-md font-bold">View Details</button>
                         </div>
                     </div>

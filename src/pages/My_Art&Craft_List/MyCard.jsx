@@ -22,7 +22,7 @@ const MyCard = ({ item, setMyItems, myItems }) => {
 
     const handleDelete = () => {
         console.log(_id);
-        fetch(`https://sr-painting-server.vercel.app/items/id/${_id}`, {
+        fetch(`https://sr-painting-server.vercel.app/items/${_id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
@@ -37,7 +37,7 @@ const MyCard = ({ item, setMyItems, myItems }) => {
         })
             .then(data => {
                 console.log(data);
-                if (data.deletedCount > 0) {
+                if (data.isConfirmed) {
                     Swal.fire({
                         title: "Deleted!",
                         text: "Your Item has been deleted.",
@@ -51,6 +51,7 @@ const MyCard = ({ item, setMyItems, myItems }) => {
 
     }
 
+  
     return (
         <div className="card  h-[500px] p-2  shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-none bg-gradient-to-r from-blue-300 to-yellow-300 ">
             <figure className="h-[300px]"><img className="w-full hover:zoom-in h-[300px] relative p-1 hover:scale-125 transition-all duration-500 cursor-pointer" src={image} /></figure>

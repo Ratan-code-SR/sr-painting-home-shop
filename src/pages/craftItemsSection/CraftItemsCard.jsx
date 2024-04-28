@@ -13,10 +13,10 @@ const CraftItemsCard = ({ data }) => {
                     <h3 className="text-2xl font-semibold sm:text-3xl e from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent">{item_name}</h3>
                     <p className='border-2 border-blue-400 w-20  mt-0'></p>
                     <div className="flex gap-4 items-center">
-                        <span className=" text-gray-200 flex items-center  text-xl"><MdCategory />{subcategory_Name}</span>
-                        <span className=" text-gray-200 flex items-center  text-xl"><MdOutlineAttachMoney />{price}</span>
+                        <span className="  flex items-center  text-xl"><MdCategory />{subcategory_Name}</span>
+                        <span className=" flex items-center  text-xl"><MdOutlineAttachMoney />{price}</span>
                     </div>
-                    <p className="text-gray-200">{short_description.slice(0, 130)}....</p>
+                    <p className="">{short_description.slice(0, 130)}....</p>
                     <Link to={`/viewDetails/${_id}`}> <button className="bg-gradient-to-r from-[#7c3aed91]  to-pink-500 p-3 w-full text-white rounded-md font-bold">View Details</button></Link>
                 </div>
             </div>
