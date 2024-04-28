@@ -8,12 +8,12 @@ const MyArtCraftList = () => {
     const [myItems, setMyItems] = useState([])
 
     useEffect(() => {
-        fetch(`https://sr-painting-server.vercel.app/items/${user?.email}`)
+        fetch(`http://localhost:5000/items/email/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 setMyItems(data)   
-                return data;      
+  
             })
     }, [user])
 

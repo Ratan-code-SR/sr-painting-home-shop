@@ -9,7 +9,9 @@ import { AuthContext } from "../../components/provider/AuthProvider";
 const UpdatePage = () => {
     const [stock, setStock] = useState('')
     const [customize, setCustomize] = useState('')
-    const { _id, image, item_name, subcategory_Name, price, rating, time, short_description, stock_status, customization } = useLoaderData()
+    const loadData = useLoaderData()
+    const { _id, image, item_name, subcategory_Name, price, rating, time, short_description, stock_status, customization } = loadData;
+    console.log(_id);
     const { loading } = useContext(AuthContext)
     if (loading) {
         return <div className="w-16 h-16 flex justify-center items-center my-40 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
@@ -34,8 +36,7 @@ const UpdatePage = () => {
         const stock_status = stock;
         const customization = customize;
         const updateInfo = { image, item_name, subcategory_Name, price, rating, time, short_description, stock_status, customization }
-
-        fetch(`http://localhost:5000/items/${_id}`, {
+        fetch(`https://sr-painting-server.vercel.app/items/id/${_id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 
 
 
 const AllArtCraftItemsTable = ({ item }) => {
-    const { item_name, image, price, subcategory_Name } = item;
+    const { _id,item_name, image, price, subcategory_Name } = item;
     return (
         <>
             <tr >
@@ -13,7 +14,7 @@ const AllArtCraftItemsTable = ({ item }) => {
                 <td className=" pt-1 pb-1 border border-blue-300">{price}TK</td>
                 <td className=" pt-1 pb-1 border border-blue-300">{subcategory_Name}</td>
                 <td className=" pt-1 pb-1 border border-blue-300">
-                    <button className="bg-gradient-to-r from-violet-600  to-pink-500 p-2 text-white rounded-md font-bold">View Details</button>
+                    <Link to={`/viewDetails/${_id}`}><button className="bg-gradient-to-r from-violet-600  to-pink-500 p-2 text-white rounded-md font-bold">View Details</button></Link>
                 </td>
             </tr>
         </>

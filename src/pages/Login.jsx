@@ -3,7 +3,7 @@ import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import { useForm } from "react-hook-form"
 import { MdOutlineEmail } from "react-icons/md";
 import { TbPasswordFingerprint } from "react-icons/tb";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../components/provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,6 +18,8 @@ const Login = () => {
         reset,
         formState: { errors },
     } = useForm()
+    const navigate = useNavigate()
+    const location = useLocation()
 
     const onSubmit = (data) => {
         const email = data.email;
@@ -27,9 +29,12 @@ const Login = () => {
         emailPasswordLogin(email, password)
             .then(result => {
                 toast.success("User login successfully!")
-                if (loading) {
-                    return <div className="w-16 h-16 flex justify-center items-center my-20 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
+                if (result) {
+                    setTimeout(() => {
+                        navigate(location?.state ? location.state : "/")
+                    }, 1000);
                 }
+
             })
             .catch(error => {
                 toast.error(error.message)
@@ -42,8 +47,10 @@ const Login = () => {
             .then(result => {
                 toast.success("Google Login successfully!!")
                 console.log(result);
-                if (loading) {
-                    return <div className="w-16 h-16 flex justify-center items-center my-20 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
+                if (result) {
+                    setTimeout(() => {
+                        navigate(location?.state ? location.state : "/")
+                    }, 1000);
                 }
             })
             .catch(error => {
@@ -55,8 +62,10 @@ const Login = () => {
             .then(result => {
                 toast.success("Github Login successfully!!")
                 console.log(result);
-                if (loading) {
-                    return <div className="w-16 h-16 flex justify-center items-center my-20 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
+                if (result) {
+                    setTimeout(() => {
+                        navigate(location?.state ? location.state : "/")
+                    }, 1000);
                 }
             })
             .catch(error => {

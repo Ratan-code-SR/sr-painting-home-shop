@@ -22,7 +22,7 @@ const MyCard = ({ item, setMyItems, myItems }) => {
 
     const handleDelete = () => {
         console.log(_id);
-        fetch(`http://localhost:5000/items/${_id}`, {
+        fetch(`https://sr-painting-server.vercel.app/items/id/${_id}`, {
             method: "DELETE"
         })
             .then(res => res.json())

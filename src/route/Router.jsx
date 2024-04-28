@@ -12,6 +12,7 @@ import PrivateRoute from "../components/protected/PrivateRoute";
 import AllArtAndCraftItems from "../pages/All_Art_craft_Items.jsx/AllArtAndCraftItems";
 import MyArtCraftList from "../pages/My_Art&Craft_List/MyArtCraftList";
 import UpdatePage from "../pages/update_page/UpdatePage";
+import ViewDetails from "../pages/view_details/ViewDetails";
 
 
 const router = createBrowserRouter([
@@ -46,12 +47,17 @@ const router = createBrowserRouter([
             },
             {
                 path: "/MyArtCraftList",
-                element: <MyArtCraftList />
+                element: <PrivateRoute><MyArtCraftList /></PrivateRoute>
             },
             {
                 path: "/updatedItem/:id",
                 element: <UpdatePage />,
-                loader: ({ params }) => fetch(`http://localhost:5000/items/${params.id}`)
+                loader: ({ params }) => fetch(`https://sr-painting-server.vercel.app/items/id/${params.id}`)
+            },
+            {
+                path: "viewDetails/:id",
+                element: <PrivateRoute><ViewDetails /></PrivateRoute>,
+                loader: () => fetch(`https://sr-painting-server.vercel.app/items`)
             }
 
         ]
