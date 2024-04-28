@@ -16,7 +16,7 @@ const MyArtCraftList = () => {
             .then(data => {
                 console.log(data);
                 setMyItems(data)
-                setFilteredArtsCrafts(data); 
+                setFilteredArtsCrafts(data);
             })
     }, [user])
 
@@ -36,30 +36,47 @@ const MyArtCraftList = () => {
         return <div className="w-16 h-16 flex justify-center items-center my-40 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
     }
 
- 
+
     return (
         <section>
             <div className="mb-10">
                 <h1 className=' md:text-3xl lg:text-3xl  p-4 text-center font-bold from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent'>My Art&Craft List</h1>
                 <p className='border-2 border-blue-400 w-40 mx-auto -mt-5'></p>
             </div>
-            <div className=" flex justify-end ">
-                <div className="w-[50px] bg-green-400  rounded-md">
-                    <label htmlFor="stock_status" className="text-[12px] text-center font-semibold flex p-2 justify-center items-center ">Filter</label>
-                    <select value={filter} onChange={handleFilterChange} name="stock_status" className="w-full border border-black " >
-                        <option value="all">All</option>
-                        <option value="Yes">Customized</option>
-                        <option value="No">Non-customized</option>
-                    </select>
-                </div>
-            </div>
-            <div className="md:grid grid-cols-3 items-center justify-center gap-5 flex flex-col ">
-                {
-                    filteredArtsCrafts.map(item =>
-                        <MyCard key={item._id} item={item} setMyItems={setMyItems} myItems={myItems} />
-                    )
-                }
-            </div>
+            {
+                filteredArtsCrafts.length == 0 ? <>
+
+                </> :
+                    <>
+                        <div className=" flex justify-end ">
+                            <div className="w-[50px] bg-green-400  rounded-md">
+                                <label htmlFor="stock_status" className="text-[12px] text-center font-semibold flex p-2 justify-center items-center ">Filter</label>
+                                <select value={filter} onChange={handleFilterChange} name="stock_status" className="w-full border border-black " >
+                                    <option value="all">All</option>
+                                    <option value="Yes">Customized</option>
+                                    <option value="No">Non-customized</option>
+                                </select>
+                            </div>
+                        </div>
+                    </>
+            }
+            {
+                filteredArtsCrafts.length == 0 ? <>
+                    <div>
+                        <h1 className="text-center my-5 text-3xl">You haven't added your item</h1>
+                    </div>
+
+                </> : <>
+
+                    <div className="md:grid grid-cols-3 items-center justify-center gap-5 flex flex-col ">
+                        {
+                            filteredArtsCrafts.map(item =>
+                                <MyCard key={item._id} item={item} setMyItems={setMyItems} myItems={myItems} />
+                            )
+                        }
+                    </div>
+                </>
+            }
         </section>
     );
 };

@@ -13,6 +13,8 @@ import AllArtAndCraftItems from "../pages/All_Art_craft_Items.jsx/AllArtAndCraft
 import MyArtCraftList from "../pages/My_Art&Craft_List/MyArtCraftList";
 import UpdatePage from "../pages/update_page/UpdatePage";
 import ViewDetails from "../pages/view_details/ViewDetails";
+import Contact from "../pages/Contact/Contact";
+import About from "../pages/about/About";
 
 
 const router = createBrowserRouter([
@@ -58,6 +60,14 @@ const router = createBrowserRouter([
                 path: "viewDetails/:id",
                 element: <PrivateRoute><ViewDetails /></PrivateRoute>,
                 loader: () => fetch(`https://sr-painting-server.vercel.app/items`)
+            },
+            {
+                path: "/contact",
+                element: <Contact />
+            },
+            {
+                path:"/about",
+                element: <About/>
             }
 
         ]

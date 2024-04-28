@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
+import { FaArrowRightToBracket } from "react-icons/fa6";
 
 
 const Nav = () => {
@@ -40,13 +41,22 @@ const Nav = () => {
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-base-100 text-black rounded-box w-52">
+                    <ul tabIndex={0} className="
+                    menu menu-sm dropdown-content
+                     mt-2 z-10 p-2 shadow 
+                     bg-gradient-to-r from-teal-400 to-yellow-200
+                      text-white
+                      font-semibold
+                      rounded-sm
+                       w-52
+                       ">
 
                         {
                             navLinks
                         }
 
                     </ul>
+
                 </div>
                 <div className="flex items-center gap-1">
                     <img className="md:w-[50px] lg:w-[50px] w-[25px] h-[25px] md:h-[50px] lg:h-[50px] rounded-full" src="../logo.jpg" alt="" />
@@ -62,13 +72,38 @@ const Nav = () => {
 
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end gap-2">
                 {
                     user ? <>
-                        <div className="avatar">
-                            <div onClick={handleLogOutUser} className="w-10 rounded-full">
-                                <img src={`${user?.photoURL}`} />
+
+                        <div className="dropdown dropdown-bottom dropdown-end z-10 dropdown-hover">
+                            <div tabIndex={0}
+                                className="w-10 h-10 ">
+                                <img className="rounded-full" src={`${user.photoURL}`} alt="" />
                             </div>
+
+                            <ul tabIndex={0} className="dropdown-content
+                             z-[1] menu p-2 shadow 
+                             bg-gradient-to-r from-pink-500 to-violet-600 w-52
+                             gap-5
+                             text-white
+                             rounded-sm
+                             ">
+                                <div className="flex gap-1 items-center cursor-pointer">
+                                    <div
+                                        className="w-8 h-8 ">
+                                        <img className="rounded-full" src={`${user.photoURL}`} alt="" />
+                                    </div>
+                                    <span> {`${user?.displayName}`}</span>
+                                </div>
+                                <div className="flex gap-1 items-center cursor-pointer">
+
+                                    <div className="w-8 h-8">
+                                        <img className="rounded-full" src='https://i.ibb.co/7XQf8Nm/images-12.jpg' alt="" />
+                                    </div>
+                                    <span onClick={handleLogOutUser}>Logout</span>
+                                </div>
+                            </ul>
                         </div>
                     </>
                         :
