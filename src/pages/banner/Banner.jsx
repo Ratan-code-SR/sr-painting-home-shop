@@ -6,8 +6,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-
 import './style.css';
+import { useTypewriter, Cursor } from 'react-simple-typewriter'
 
 // import required modules
 import { Pagination } from 'swiper/modules';
@@ -28,6 +28,12 @@ const Banner = () => {
                 setItems(data)
             })
     }, [])
+
+    const [text] = useTypewriter({
+        words: ['Creation', 'Painting', "Imagination"],
+        loop: 3,
+        onLoopDone: () => console.log(`loop completed after 3 runs.`)
+    })
     return (
         <>
             <Swiper
@@ -44,9 +50,12 @@ const Banner = () => {
                                 <div className="hero-overlay "></div>
                                 <div className="hero-content text-center text-neutral-content">
                                     <div className="max-w-md">
-                                        <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                                        <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                                        <Link to={`/viewDetails/${item._id}`}> <button className="btn btn-primary">View Details</button></Link>
+                                        <h1 className="mb-5 text-5xl font-bold">Explore Our  <span className=' from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent'>{text}</span>
+                                            <Cursor cursorColor='red' /></h1>
+                                        <p className="mb-5">{
+                                            item.short_description.slice(0,220)
+                                        }..</p>
+                                        <Link to={`/viewDetails/${item._id}`}> <button className="bg-gradient-to-r from-violet-600  to-pink-500 p-3  text-white rounded-md font-bold">View Details</button></Link>
                                     </div>
                                 </div>
                             </div>

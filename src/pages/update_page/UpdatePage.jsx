@@ -36,7 +36,7 @@ const UpdatePage = () => {
         const stock_status = stock;
         const customization = customize;
         const updateInfo = { image, item_name, subcategory_Name, price, rating, time, short_description, stock_status, customization }
-        fetch(`https://sr-painting-server.vercel.app/items/id/${_id}`, {
+        fetch(`https://sr-painting-server.vercel.app/items/${_id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -62,10 +62,11 @@ const UpdatePage = () => {
     return (
         <section className="p-6  bg-gradient-to-r from-violet-600  to-pink-500">
             <form onSubmit={handleAddProductItem} className="container flex flex-col mx-auto space-y-12">
-                <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-50">
-                    <div className="space-y-2 col-span-full lg:col-span-1">
-                        <p className="font-medium">Update Product Information</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id cum, quae iusto ut voluptatum officia facere enim atque necessitatibus facilis commodi reiciendis veritatis adipisci sed odit. Alias impedit sit debitis!</p>
+                <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-50 justify-center items-center">
+                    <div className="space-y-2 col-span-full lg:col-span-1 border p-2">
+                        <p className="font-semibold text-center text-white text-xl">Update Product Information</p>
+                        <p className='border-2 border-yellow-300 w-40 mx-auto -mt-3'></p>
+                        <p className="text-center text-sm font-semibold text-gray-300">Updating product information is crucial for ensuring accurate and relevant details are provided to customers, facilitating informed purchasing decisions. Regularly reviewing and revising product information helps maintain transparency, enhances customer satisfaction,and aligns with evolving market trends and consumer needs.</p>
 
                     </div>
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Banner from '../banner/Banner';
 import Popular_item from '../populer-item/Popular_item';
@@ -16,6 +16,9 @@ const Home = () => {
     if (loading) {
         return <div className="w-16 h-16 flex justify-center items-center my-20 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
     }
+    useEffect(() => {
+        document.title = "SR-Painting | Home"
+    }, [])
     return (
         <div>
             <ScrollToTop smooth
@@ -28,21 +31,21 @@ const Home = () => {
 
                 <div>
                     <h1 className=' md:text-5xl lg:text-5xl  p-4 text-center font-bold from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent'>Explore Our Craft Items</h1>
-                    <p className='border-2 border-blue-400 w-40 mx-auto'></p>
+                    <p className='border-2 border-blue-400 w-40 mx-auto -mt-3'></p>
                 </div>
                 <CraftItemsSection data={data} />
             </div>
             <div>
                 <Subscribe />
             </div>
-            <div className='my-5 border border-black'>
+            <div className='my-5 '>
                 <Best_paintings />
             </div>
-            <section className='py-10'>
+            <section className='md:py-10'>
                 <div className='flex flex-col justify-center items-center '>
                     <h1 className=' md:text-5xl lg:text-5xl  p-4 text-center font-bold from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent'>Subscribe</h1>
                     <p className='border-2 border-blue-400 w-20 -mt-3 mb-2 '></p>
-                    <p>Subscribe for Exclusive Updates and Offers!</p>
+                    <p className='text-center'>Subscribe for Exclusive Updates and Offers!</p>
 
                 </div>
                 <Sub />

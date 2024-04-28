@@ -8,7 +8,9 @@ const MyArtCraftList = () => {
     const [myItems, setMyItems] = useState([])
     const [filteredArtsCrafts, setFilteredArtsCrafts] = useState([]);
     const [filter, setFilter] = useState('All'); // Default filter is 'all'
-
+    useEffect(() => {
+        document.title = "SR-Painting | My Art&Craft List"
+    }, [])
 
     useEffect(() => {
         fetch(`https://sr-painting-server.vercel.app/items/email/${user?.email}`)

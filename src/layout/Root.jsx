@@ -9,7 +9,7 @@ const Root = () => {
             <header className=' mx-auto '  >
                 <Nav />
             </header>
-            <main className=' container mx-auto px-4'>
+            <main className='container mx-auto px-2'>
                 <Outlet />
             </main>
             <footer className=' container mx-auto' style={{ backgroundImage: 'url(../bg.svg)' }}>

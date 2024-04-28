@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../components/provider/AuthProvider";
 import AllArtCraftItemsTable from "./AllArtCraftItemsTable";
@@ -9,6 +9,11 @@ const AllArtAndCraftItems = () => {
     const items = useLoaderData()
     console.log(items);
     const { loading } = useContext(AuthContext)
+
+    useEffect(() => {
+        document.title = "SR-Painting | All Art & craft Items"
+    }, [])
+
     if (loading) {
         return <div className="w-16 h-16 flex justify-center items-center my-20 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
     }

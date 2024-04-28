@@ -4,11 +4,11 @@ const Best_paintings = () => {
     return (
         <div>
             <div className='md:w-[700px] mx-auto'>
-                <h1 className='text-center text-3xl'>Our Best Painting</h1>
-                <p className='border-2 border-blue-400 w-20 mx-auto'></p>
+                <h1 className='text-center text-3xl my-5'>Our Best Painting</h1>
+                <p className='border-2 border-blue-400 w-20 mx-auto -mt-4'></p>
                 <p className='text-center'>Discover the epitome of artistic excellence at SR Painting's 'Our Best Painting' section, where every stroke tells a story of unparalleled creativity. Immerse yourself in a curated selection of masterpieces that captivate the imagination and inspire awe.</p>
             </div>
-            <section className="p-4 lg:p-8 dark:bg-gray-100 dark:text-gray-800">
+            <section className="md:p-4 lg:p-8 dark:bg-gray-100 dark:text-gray-800">
                 <div className="container mx-auto space-y-12">
                     <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
                         <img src="https://i.ibb.co/Zxw5Fw6/images-11.jpg" alt="" className="h-80 dark:bg-gray-500 aspect-video" />

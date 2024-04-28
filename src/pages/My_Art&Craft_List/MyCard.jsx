@@ -4,7 +4,7 @@ import { GiBackPain } from "react-icons/gi";
 import { FcRating } from "react-icons/fc";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import { Link } from "react-router-dom";
-
+import { Tooltip } from 'react-tooltip'
 
 
 
@@ -51,13 +51,29 @@ const MyCard = ({ item, setMyItems, myItems }) => {
 
     }
 
-  
+
     return (
         <div className="card  h-[500px] p-2  shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-none bg-gradient-to-r from-blue-300 to-yellow-300 ">
             <figure className="h-[300px]"><img className="w-full hover:zoom-in h-[300px] relative p-1 hover:scale-125 transition-all duration-500 cursor-pointer" src={image} /></figure>
             <div className="absolute flex flex-col justify-end  gap-5 bg-[#348e26b5] text-3xl p-2 mt-1 ml-2 ">
-                <Link to={`/updatedItem/${_id}`}><button className="hover:text-green-400" ><FaEdit /></button></Link>
-                <button onClick={handleDelete} className="hover:text-red-700"><MdDeleteForever /></button>
+
+                <div id="not-clickable" data-tooltip-id="my-tooltip-inline">
+                    <Link to={`/updatedItem/${_id}`}><button className="hover:text-green-400" ><FaEdit /></button></Link>
+                </div>
+                <Tooltip id="my-tooltip-inline"
+                    style={{ backgroundColor: "#808080", color: "#fff", padding: "0 5px" }}>
+                    <button className="text-sm ">Update</button>
+                </Tooltip>
+
+                <div id="not-clickable"  data-tooltip-id="my-tooltip-styles">
+                    <button onClick={handleDelete} className="hover:text-red-700"><MdDeleteForever /></button>
+                </div>
+                <Tooltip id="my-tooltip-styles"
+                    style={{ backgroundColor: "#808080", color: "#fff", padding: "0 5px" }}>
+                    <button className="text-sm ">Delete</button>
+                </Tooltip>
+
+                {/* <button onClick={handleDelete} className="hover:text-red-700"><MdDeleteForever /></button> */}
             </div>
             <div className="">
                 <h2 className="card-title"><GiBackPain />{item_name}</h2>

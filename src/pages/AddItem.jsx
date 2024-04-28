@@ -1,5 +1,5 @@
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../components/provider/AuthProvider";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
@@ -8,6 +8,9 @@ const AddItem = () => {
     const { user } = useContext(AuthContext)
     const [stock, setStock] = useState('')
     const [customize, setCustomize] = useState('')
+    useEffect(() => {
+        document.title = "SR-Painting | Add Craft Item"
+    }, [])
     const handleStockChange = (e) => {
         setStock(e.target.value);
     };
@@ -57,10 +60,11 @@ const AddItem = () => {
     return (
         <section className="p-6  bg-gradient-to-r from-violet-600  to-pink-500">
             <form onSubmit={handleAddProductItem} className="container flex flex-col mx-auto space-y-12">
-                <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-50">
-                    <div className="space-y-2 col-span-full lg:col-span-1">
-                        <p className="font-medium">Add Product Inormation</p>
-                        <p className="text-xs">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci fuga autem eum!</p>
+                <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-50 justify-center items-center">
+                    <div className="space-y-2 col-span-full lg:col-span-1 border p-2">
+                        <p className="font-bold text-2xl text-white text-center">Add Product Information</p>
+                        <p className='border-2 border-yellow-300 w-40 mx-auto -mt-3'></p>
+                        <p className=" text-center text-gray-300">Adding product information ensures that potential customers have all the necessary details to make informed decisions. Accurate and comprehensive product descriptions help build trust, increase sales, and reduce the likelihood of returns or dissatisfaction.</p>
                     </div>
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                         <div className="col-span-full sm:col-span-3">
