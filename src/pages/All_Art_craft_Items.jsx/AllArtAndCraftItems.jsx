@@ -28,6 +28,7 @@ const AllArtAndCraftItems = () => {
                         {/* head */}
                         <thead>
                             <tr>
+                                <th className=" pt-1 pb-1 border border-blue-300">SL</th>
                                 <th className=" pt-1 pb-1 border border-blue-300">Image</th>
                                 <th className=" pt-1 pb-1 border border-blue-300">Product Name</th>
                                 <th className=" pt-1 pb-1 border border-blue-300">Price</th>
@@ -39,8 +40,8 @@ const AllArtAndCraftItems = () => {
                         <tbody className=" pt-0 pb-0">
                             {/* row 1 */}
                             {
-                                items.map(item =>
-                                    <AllArtCraftItemsTable key={item._id} item={item} />
+                                items.map((item,index) =>
+                                    <AllArtCraftItemsTable key={item._id} item={item} index={index}/>
                                 )
 
                             }

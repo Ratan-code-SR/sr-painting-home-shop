@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 
 
 
-const AllArtCraftItemsTable = ({ item }) => {
+const AllArtCraftItemsTable = ({ item,index }) => {
     const { _id,item_name, image, price, subcategory_Name } = item;
     return (
         <>
             <tr >
+                <td className=" pt-1 pb-1 border border-blue-300">{index + 1}</td>
                 <td className=" pt-1 pb-1 border border-blue-300">
                     <img className="w-8 h-10" src={image} alt="" />
                 </td>
