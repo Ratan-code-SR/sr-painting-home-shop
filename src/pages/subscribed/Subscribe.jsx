@@ -23,21 +23,6 @@ const Subscribe = () => {
 					</div>
 				</div>
 			</div>
-			{/* <div className="grid grid-cols-2 items-center p-2   gap-5 md:w-1/2 bg-gradient-to-r from-violet-600 to-[#d668df]  flex-col  h-[200px] ">
-				<div className="w-full   bg-gradient-to-r from-violet-600 to-[#d668df] flex flex-col  justify-center items-center rounded-md p-1 ">
-					<h1>Happy Client</h1>
-					<p className="text-5xl">100%</p>
-				</div>
-				<div className="w-full  bg-gradient-to-r from-violet-600 to-[#d668df] flex flex-col  justify-center items-center rounded-md p-1 ">
-					<h1>Happy Client</h1>
-					<p className="text-5xl">100%</p>
-				</div>
-			
-
-
-
-
-			</div> */}
 
 		</section>
 	);

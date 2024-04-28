@@ -2,7 +2,7 @@ import React from 'react';
 
 const Sub = () => {
     return (
-        <div className=' bg-gradient-to-b from-[#d668df] to-violet-600   py-10'>
+        <div className=' md:bg-gradient-to-b from-[#d668df] to-violet-600   py-10'>
             <div className='bg-[#ffff] text-black md:w-[500px] mx-auto  md:flex gap-4 p-5 items-center justify-center grid grid-cols-1'>
                 <img className='w-[200px] mx-auto' src="https://i.ibb.co/DWw0j6Y/Screenshot-2024-04-26-194946.jpg" alt="" />
                 <form >

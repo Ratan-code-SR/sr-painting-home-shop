@@ -41,7 +41,7 @@ const Home = () => {
             <section className='py-10'>
                 <div className='flex flex-col justify-center items-center '>
                     <h1 className=' md:text-5xl lg:text-5xl  p-4 text-center font-bold from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent'>Subscribe</h1>
-                    <p className='border-2 border-blue-400 w-20 '></p>
+                    <p className='border-2 border-blue-400 w-20 -mt-3 mb-2 '></p>
                     <p>Subscribe for Exclusive Updates and Offers!</p>
 
                 </div>
