@@ -9,10 +9,12 @@ const ViewDetails = () => {
     return (
 
         <div>
-           <div>
-           <h1 className='md:text-3xl lg:text-3xl  p-4 text-center font-bold from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent'>View Product Details</h1>
-            <p className='border-2 border-blue-400 w-40 mx-auto -mt-4 '></p>
-           </div>
+            <div className='md:w-[700px] w-full mx-auto text-center'>
+                <h1 className='md:text-3xl lg:text-3xl  p-4 text-center font-bold from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent'>View Product Details</h1>
+                <p className='border-2 border-blue-400 w-40 mx-auto -mt-4 '></p>
+                <p>Explore in-depth product information and specifications with our 'View Product Details' feature, empowering you to make informed decisions before purchasing. Dive into comprehensive descriptions, high-resolution images, and customer reviews for a complete understanding of our offerings.</p>
+              
+            </div>
             <div className='md:flex gap-5 py-5 p-2 grid grid-cols-1'>
                 <div className='md:w-1/2 w-full'>
                     <img className='w-full' src={image} alt="" />

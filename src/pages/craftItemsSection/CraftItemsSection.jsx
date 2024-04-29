@@ -4,8 +4,10 @@ import CraftItemsCard from './CraftItemsCard';
 const CraftItemsSection = ({ data }) => {
     return (
         <div>
-            <section className=" ">
-                <div className="container max-w-6xl mx-auto ">
+            <section className="">
+                <div className="container max-w-6xl mx-auto" 
+          
+                >
                     <div rel="noopener noreferrer" href="#" className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-50 border my-3 p-2">
                         <img src={data[0].image} alt="" className="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 dark:bg-gray-500" />
                         <div className=" space-y-2 lg:col-span-5">
