@@ -1,5 +1,5 @@
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
@@ -9,8 +9,18 @@ import { AuthContext } from "../../components/provider/AuthProvider";
 const UpdatePage = () => {
     const [stock, setStock] = useState('')
     const [customize, setCustomize] = useState('')
+    const [newData, setNewData] = useState([])
     const loadData = useLoaderData()
     const { _id, image, item_name, subcategory_Name, price, rating, time, short_description, stock_status, customization } = loadData;
+
+    useEffect(() => {
+        fetch(`https://sr-painting-server.vercel.app/items/id/${_id}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setNewData(data)
+            })
+    }, [])
     console.log(_id);
     const { loading } = useContext(AuthContext)
     if (loading) {
@@ -44,6 +54,7 @@ const UpdatePage = () => {
             body: JSON.stringify(updateInfo),
         })
             .then(res => res.json())
+            
             .then((data) => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
@@ -56,6 +67,7 @@ const UpdatePage = () => {
                 }
 
             });
+        setNewData(updateInfo)
 
     }
 
@@ -66,8 +78,15 @@ const UpdatePage = () => {
                     <div className="space-y-2 col-span-full lg:col-span-1 border p-2">
                         <p className="font-semibold text-center text-white text-xl">Update Product Information</p>
                         <p className='border-2 border-yellow-300 w-40 mx-auto -mt-3'></p>
-                        <p className="text-center text-sm font-semibold text-gray-300">Updating product information is crucial for ensuring accurate and relevant details are provided to customers, facilitating informed purchasing decisions. Regularly reviewing and revising product information helps maintain transparency, enhances customer satisfaction,and aligns with evolving market trends and consumer needs.</p>
-
+                        <img className="w-full h-[150px]" src={newData.image} alt="" />
+                        <p><span className='font-semibold mr-2'>Product Name: </span>{newData.item_name}</p>
+                        <p><span className='font-semibold mr-2'>Subcategory Name: </span>{newData.subcategory_Name}</p>
+                        <p><span className='font-semibold mr-2'>Price: </span>{newData.price}</p>
+                        <p><span className='font-semibold mr-2'>Rating: </span>{newData.rating}</p>
+                        <p><span className='font-semibold mr-2'>Time: </span>{newData.time}</p>
+                        <p><span className='font-semibold mr-2'>Stock Status: </span>{newData.stock_status}</p>
+                        <p><span className='font-semibold mr-2'>Customization: </span>{newData.customization}</p>
+                        
                     </div>
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                         <div className="col-span-full sm:col-span-3">

@@ -1,4 +1,7 @@
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const Subscribe = () => {
 	return (
@@ -7,7 +10,13 @@ const Subscribe = () => {
 		">
 			<div className="hero  h-[400px]" style={{ backgroundImage: 'url(https://i.ibb.co/3CmFnFz/images-11.jpg)' }}>
 				<div className="hero-overlay ">
-					<div className="hero-content text-center  flex justify-end">
+					<div className="hero-content text-center  flex justify-end"
+					data-aos="flip-left"
+					data-aos-offset="500"
+					data-aos-delay="200"
+					data-aos-duration="500"
+					data-aos-easing="ease-in-out"
+					>
 						<div className="grid grid-cols-2 items-center p-2 md:w-1/2 justify-end  gap-5  bg-gradient-to-r from-[#7c3aedc4] to-[#d668df8c]  flex-col  h-[200px] rounded-md">
 							<div className="w-full  bg-gradient-to-r from-violet-600 to-[#d668df] flex flex-col  justify-centeritems-center rounded-md p-1  ">
 								<h1>Happy Client</h1>
