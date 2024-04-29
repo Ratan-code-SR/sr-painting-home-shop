@@ -45,8 +45,8 @@ const MyArtCraftList = () => {
     return (
         <section>
             <div className="mb-10">
-                <h1 className=' md:text-3xl lg:text-3xl  p-4 text-center font-bold from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent'>My Art&Craft List</h1>
-                <p className='border-2 border-blue-400 w-40 mx-auto -mt-5'></p>
+                <h1 className=' md:text-3xl lg:text-3xl mt-2 text-center font-bold from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent'>My Art&Craft List</h1>
+                <p className='md:border-2 border border-blue-400 md:w-40 w-24 mx-auto '></p>
             </div>
 
             <div className=" flex justify-end ">
@@ -61,7 +61,7 @@ const MyArtCraftList = () => {
             </div>
 
             {
-                <div className="md:grid grid-cols-3 my-5 items-center justify-center gap-5 flex flex-col ">
+                <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 text-black">
                     {
                         filteredArtsCrafts.map(item =>
                             <MyCard key={item._id} item={item} setFilteredArtsCrafts={setFilteredArtsCrafts} myItems={myItems} />

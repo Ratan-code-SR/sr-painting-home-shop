@@ -63,7 +63,7 @@ const AddItem = () => {
                 <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-50 justify-center items-center">
                     <div className="space-y-2 col-span-full lg:col-span-1 border p-2">
                         <p className="font-bold text-2xl text-white text-center">Add Product Information</p>
-                        <p className='border-2 border-yellow-300 w-40 mx-auto -mt-3'></p>
+                        <p className='border-2 border-yellow-300 md:w-32 w-40 mx-auto  '></p>
                         <p className=" text-center text-gray-300">Adding product information ensures that potential customers have all the necessary details to make informed decisions. Accurate and comprehensive product descriptions help build trust, increase sales, and reduce the likelihood of returns or dissatisfaction.</p>
                     </div>
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">

@@ -57,7 +57,7 @@ const MyCard = ({ item, setFilteredArtsCrafts, myItems }) => {
 
 
     return (
-        <div className="card  p-2  shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-none bg-gradient-to-r from-blue-300 to-yellow-300 ">
+        <div className="card p-2  shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-none bg-gradient-to-r from-blue-300 to-yellow-300 ">
             <figure className="h-[300px]"><img className="w-full hover:zoom-in h-[300px] relative p-1 hover:scale-125 transition-all duration-500 cursor-pointer" src={image} /></figure>
             <div className="absolute flex flex-col justify-end  gap-5 bg-[#348e26b5] text-3xl p-2 mt-1 ml-2 ">
 

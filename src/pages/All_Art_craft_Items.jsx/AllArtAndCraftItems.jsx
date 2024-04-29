@@ -21,7 +21,7 @@ const AllArtAndCraftItems = () => {
         <div >
             <div className="flex flex-col justify-center items-center gap-2 md:w-2/3  mx-auto ">
                 <h1 className=' md:text-3xl lg:text-3xl  p-4 text-center font-bold from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent'>View All Product Items</h1>
-                <p className='border-2 border-blue-400 w-40 mx-auto -mt-5'></p>
+                <p className='md:border-2 border border-blue-400 md:w-32 w-24 mx-auto -mt-5'></p>
                 <p className="text-sm text-center mb-3">
                     Welcome to our gallery of artistic wonders! Dive into our View All Product Items page to explore our complete collection of paintings and drawings. From captivating landscapes to mesmerizing portraits, every piece has a story to tell. Immerse yourself in a world of creativity and inspiration as you browse through our diverse range of artwork. Start exploring now and find the perfect masterpiece to adorn your space.
 
