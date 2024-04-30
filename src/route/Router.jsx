@@ -12,7 +12,7 @@ import PrivateRoute from "../components/protected/PrivateRoute";
 import AllArtAndCraftItems from "../pages/All_Art_craft_Items.jsx/AllArtAndCraftItems";
 import MyArtCraftList from "../pages/My_Art&Craft_List/MyArtCraftList";
 import UpdatePage from "../pages/update_page/UpdatePage";
-import ViewDetails from "../pages/view_details/ViewDetails";
+import ViewDetails from "../pages/view_details/ViewDetailsItems";
 import Contact from "../pages/Contact/Contact";
 import About from "../pages/about/About";
 
@@ -66,10 +66,10 @@ const router = createBrowserRouter([
                 element: <Contact />
             },
             {
-                path:"/about",
-                element: <About/>
-            }
-
+                path: "/about",
+                element: <About />
+            },
+           
         ]
     },
 ]);

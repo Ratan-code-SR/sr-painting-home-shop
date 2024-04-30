@@ -30,7 +30,7 @@ const Footer = () => {
                 </nav>
                 <nav>
                     <h6 className="footer-title">Legal</h6>
-                    <Link to="/policy"  className="link link-hover">Terms of use</Link>
+                    <Link to="/ArtCraftCategories"  className="link link-hover">Terms of use</Link>
                     <Link to="/policy" className="link link-hover">Privacy policy</Link>
                     <Link to="/policy" className="link link-hover">Cookie policy</Link>
                 </nav>

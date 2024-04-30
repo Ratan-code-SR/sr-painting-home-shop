@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Banner from '../banner/Banner';
 import CraftItemsSection from '../craftItemsSection/CraftItemsSection';
@@ -9,7 +9,7 @@ import ScrollToTop from "react-scroll-to-top";
 import { AuthContext } from '../../components/provider/AuthProvider';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
-// ..
+
 AOS.init();
 
 const Home = () => {
@@ -28,28 +28,41 @@ const Home = () => {
             <section className='px-0'>
                 <Banner />
             </section>
-            <div className=' my-5 '>
 
-                <div>
-                    <p className='text-center text-3xl font-semibold'
-                    >Discover Our All</p>
-                    <h1 className=' text-2xl  text-center font-bold'
-                    >Craft Items</h1>
-
-                    <p className='border-2 border-green-400 w-24 mx-auto '
-                        data-aos="zoom-in"
-                        data-aos-delay="50"
-                        data-aos-duration="1000"
-                    ></p>
+            {/* CraftItemsSection */}
+            <section>
+                <div className=' my-5 '>
+                    <div>
+                        <p className='text-center text-3xl font-semibold'>Discover Our All</p>
+                        <h1 className=' text-2xl  text-center font-bold'>Craft Items</h1>
+                        <p className='border-2 border-green-400 w-24 mx-auto '
+                            data-aos="zoom-in"
+                            data-aos-delay="50"
+                            data-aos-duration="1000"
+                        ></p>
+                    </div>
+                    <div>
+                        <CraftItemsSection data={data} />
+                    </div>
                 </div>
-                <CraftItemsSection data={data} />
-            </div>
-            <div>
-                <Subscribe />
-            </div>
-            <div className='my-5 '>
-                <Best_paintings />
-            </div>
+            </section>
+
+        
+
+            {/* Subscribe section */}
+            <section>
+                <div>
+                    <Subscribe />
+                </div>
+            </section>
+
+            <section className='my-5 '>
+                <div >
+                    <Best_paintings />
+                </div>
+            </section>
+
+
             <section className='md:py-10'>
                 <div className='flex flex-col justify-center items-center '>
                     <h1 className=' md:text-5xl lg:text-5xl  p-4 text-center font-bold from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent'

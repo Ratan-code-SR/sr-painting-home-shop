@@ -7,7 +7,7 @@ const MyArtCraftList = () => {
     const { user, loading } = useContext(AuthContext)
     const [myItems, setMyItems] = useState([])
     const [filteredArtsCrafts, setFilteredArtsCrafts] = useState([]);
-    const [filter, setFilter] = useState('All'); // Default filter is 'all'
+    const [filter, setFilter] = useState('All');
     useEffect(() => {
         document.title = "SR-Painting | My Art&Craft List"
     }, [])
