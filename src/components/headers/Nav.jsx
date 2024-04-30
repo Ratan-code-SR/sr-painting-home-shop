@@ -20,7 +20,7 @@ const Nav = () => {
     }, [theme])
 
      if(loading){
-        return <p>loading...........</p>
+        return <div className="w-16 h-16 flex justify-center items-center my-20 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
      }
     const handleLogOutUser = () => {
         logOutUser()
