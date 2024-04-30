@@ -3,7 +3,7 @@ import { FaRegEyeSlash, FaRegEye, FaUser } from "react-icons/fa";
 import { useForm } from "react-hook-form"
 import { MdAddPhotoAlternate, MdOutlineEmail } from "react-icons/md";
 import { TbPasswordFingerprint } from "react-icons/tb";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../components/provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
@@ -21,6 +21,8 @@ const Register = () => {
         reset,
         formState: { errors },
     } = useForm()
+    const navigate = useNavigate()
+    const location = useLocation()
 
     const onSubmit = (data) => {
         const email = data.email
@@ -30,13 +32,17 @@ const Register = () => {
         emailPasswordRegister(email, password)
             .then(result => {
 
+                toast.success("User Register successfully!")
                 updateProfile(result.user, {
                     displayName: displayName,
                     photoURL: photoURL
 
                 });
-                console.log(result);
-                toast.success("User register successfully!")
+                if (result) {
+                    setTimeout(() => {
+                        navigate(location?.state ? location.state : "/")
+                    }, 1000);
+                }
             })
             .catch(error => {
                 console.log(error.message);
@@ -104,7 +110,7 @@ const Register = () => {
                         <button className="bg-gradient-to-r from-violet-600  to-pink-500 p-3 text-white rounded-md font-bold">Register</button>
                     </div>
                 </form>
-                <div className='text-center my-2 text-gray-200'>
+                <div className='text-center my-2 text-black'>
                     <p>You have already account <span className='underline font-bold'><Link to="/login">Login Now</Link></span></p>
                 </div>
             </div>
