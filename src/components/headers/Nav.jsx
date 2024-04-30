@@ -5,18 +5,23 @@ import { toast } from "react-toastify";
 
 
 const Nav = () => {
-    const { user, logOutUser } = useContext(AuthContext)
+    const { user, logOutUser,loading } = useContext(AuthContext)
     const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light')
     const handleOnChange = (e) => {
         const newTheme = e.target.checked ? 'synthwave' : 'light';
         setTheme(newTheme)
     }
+
+
     useEffect(() => {
         localStorage.setItem("theme", theme);
         const setLocalTheme = localStorage.getItem('theme')
         document.querySelector('html').setAttribute('data-theme', setLocalTheme)
     }, [theme])
 
+     if(loading){
+        return <p>loading...........</p>
+     }
     const handleLogOutUser = () => {
         logOutUser()
             .then(result => {
@@ -88,7 +93,7 @@ const Nav = () => {
                         <div className="dropdown dropdown-bottom dropdown-end z-10 dropdown-hover">
                             <div tabIndex={0}
                                 className="md:w-10 md:h-10 w-7 h-7 ">
-                                <img className="rounded-full" src={`${user.photoURL}`} alt="" />
+                                <img className="rounded-full md:w-10 md:h-10 w-7 h-7" src={`${user.photoURL}`} alt="" />
                             </div>
 
                             <ul tabIndex={0} className="dropdown-content
@@ -101,14 +106,14 @@ const Nav = () => {
                                 <div className="flex gap-1 items-center cursor-pointer">
                                     <div
                                         className="w-5 h-5 ">
-                                        <img className="rounded-full" src={`${user.photoURL}`} alt="" />
+                                        <img className="rounded-full w-5 h-5" src={`${user.photoURL}`} alt="" />
                                     </div>
                                     <span> {`${user?.displayName}`}</span>
                                 </div>
                                 <div className="flex gap-1 items-center cursor-pointer">
 
                                     <div className="w-5 h-5">
-                                        <img className="rounded-full" src='https://i.ibb.co/7XQf8Nm/images-12.jpg' alt="" />
+                                        <img className="rounded-full w-5 h-5" src='https://i.ibb.co/7XQf8Nm/images-12.jpg' alt="" />
                                     </div>
                                     <span onClick={handleLogOutUser}>Logout</span>
                                 </div>

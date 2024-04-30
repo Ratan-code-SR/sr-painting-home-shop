@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
-    const { googleLogin, emailPasswordLogin, loading, gitHubLogin } = useContext(AuthContext)
+    const { googleLogin, emailPasswordLogin,  gitHubLogin } = useContext(AuthContext)
     const {
         register,
         handleSubmit,

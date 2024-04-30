@@ -14,7 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
-    const { emailPasswordRegister } = useContext(AuthContext)
+    const { emailPasswordRegister,setUser } = useContext(AuthContext)
     const {
         register,
         handleSubmit,
@@ -31,13 +31,13 @@ const Register = () => {
         const photoURL = data.photoURL;
         emailPasswordRegister(email, password)
             .then(result => {
-
                 toast.success("User Register successfully!")
                 updateProfile(result.user, {
                     displayName: displayName,
                     photoURL: photoURL
 
                 });
+                setUser({ displayName:displayName, photoURL:photoURL })
                 if (result) {
                     setTimeout(() => {
                         navigate(location?.state ? location.state : "/")
@@ -50,6 +50,7 @@ const Register = () => {
             })
         reset()
     }
+
 
     return (
         <div className="hero ">
