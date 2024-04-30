@@ -17,7 +17,6 @@ const MyCard = ({ item, setFilteredArtsCrafts, myItems }) => {
         _id,
         item_name,
         image,
-        short_description,
         price,
         rating,
         stock_status,

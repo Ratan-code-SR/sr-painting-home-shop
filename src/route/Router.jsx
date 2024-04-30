@@ -26,7 +26,6 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />,
-
                 loader: () => fetch("https://sr-painting-server.vercel.app/items")
 
             },
@@ -50,6 +49,7 @@ const router = createBrowserRouter([
             {
                 path: "/MyArtCraftList",
                 element: <PrivateRoute><MyArtCraftList /></PrivateRoute>
+
             },
             {
                 path: "/updatedItem/:id",

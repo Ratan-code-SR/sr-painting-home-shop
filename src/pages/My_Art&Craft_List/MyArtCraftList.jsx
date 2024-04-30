@@ -22,6 +22,7 @@ const MyArtCraftList = () => {
 
             })
     }, [user])
+  
 
 
     const handleFilterChange = (event) => {
@@ -38,10 +39,12 @@ const MyArtCraftList = () => {
         }
     };
 
-    if (loading ) {
+
+    if (loading) {
         return <div className="w-16 h-16 flex justify-center items-center my-40 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
     }
-  
+
+
     return (
         <section>
             <div className="mb-10">

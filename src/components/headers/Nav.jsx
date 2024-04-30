@@ -1,17 +1,15 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
-import { toast } from "react-toastify";
-
+import 'react-toastify/dist/ReactToastify.css';
 
 const Nav = () => {
-    const { user, logOutUser,loading } = useContext(AuthContext)
+    const { user, logOutUser } = useContext(AuthContext)
     const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light')
     const handleOnChange = (e) => {
         const newTheme = e.target.checked ? 'synthwave' : 'light';
         setTheme(newTheme)
     }
-
 
     useEffect(() => {
         localStorage.setItem("theme", theme);
@@ -19,18 +17,7 @@ const Nav = () => {
         document.querySelector('html').setAttribute('data-theme', setLocalTheme)
     }, [theme])
 
-     if(loading){
-        return <div className="w-16 h-16 flex justify-center items-center my-20 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
-     }
-    const handleLogOutUser = () => {
-        logOutUser()
-            .then(result => {
-                toast.success("User logout successfully!")
-            })
-            .catch(error => {
-                toast.error(error.message)
-            })
-    }
+
     const navLinks = <>
         <NavLink to="/" className="ml-3 font-semibold ">Home</NavLink>
         <NavLink to="/AllArtAndCraftItems" className="ml-3 font-semibold ">All Art & craft Items</NavLink>
@@ -115,7 +102,7 @@ const Nav = () => {
                                     <div className="w-5 h-5">
                                         <img className="rounded-full w-5 h-5" src='https://i.ibb.co/7XQf8Nm/images-12.jpg' alt="" />
                                     </div>
-                                    <span onClick={handleLogOutUser}>Logout</span>
+                                    <span onClick={() => logOutUser()}>Logout</span>
                                 </div>
                             </ul>
                         </div>

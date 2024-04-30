@@ -1,5 +1,5 @@
 
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, {  useContext, useEffect,  useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -11,8 +11,7 @@ import { useTypewriter, Cursor } from 'react-simple-typewriter'
 // import required modules
 import { Pagination } from 'swiper/modules';
 import { Link } from 'react-router-dom';
-const Banner = () => {
-    const [items, setItems] = useState([])
+const Banner = ({data}) => {
     const pagination = {
         clickable: true,
         renderBullet: function (index, className) {
@@ -20,20 +19,13 @@ const Banner = () => {
         },
     };
 
-    useEffect(() => {
-        fetch(`https://sr-painting-server.vercel.app/items`)
-            .then(res => res.json())
-            .then(data => {
-                setItems(data)
-
-            })
-    }, [])
 
     const [text] = useTypewriter({
         words: ['Creation', 'Painting', "Imagination"],
         loop: 3,
         onLoopDone: () => console.log(`loop completed after 3 runs.`)
     })
+
     return (
         <>
             <Swiper
@@ -42,7 +34,7 @@ const Banner = () => {
                 className="mySwiper"
             >
                 {
-                    items.slice(0, 5).map(item =>
+                    data.slice(0, 5).map(item =>
                         <SwiperSlide key={item._id}>
 
                             <div>

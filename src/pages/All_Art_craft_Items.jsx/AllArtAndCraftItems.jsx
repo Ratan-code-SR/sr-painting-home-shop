@@ -7,7 +7,7 @@ import AllArtCraftItemsTable from "./AllArtCraftItemsTable";
 const AllArtAndCraftItems = () => {
 
     const items = useLoaderData()
-    console.log(items);
+    // console.log(items);
     const { loading } = useContext(AuthContext)
 
     useEffect(() => {

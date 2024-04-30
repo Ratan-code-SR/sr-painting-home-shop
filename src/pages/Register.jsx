@@ -32,17 +32,17 @@ const Register = () => {
         emailPasswordRegister(email, password)
             .then(result => {
                 toast.success("User Register successfully!")
-                updateProfile(result.user, {
-                    displayName: displayName,
-                    photoURL: photoURL
-
-                });
+              
+                // updateProfile(result.user, {
+                //     displayName: displayName,
+                //     photoURL: photoURL
+                    
+                // });
                 setUser({ displayName:displayName, photoURL:photoURL })
-                if (result) {
-                    setTimeout(() => {
-                        navigate(location?.state ? location.state : "/")
-                    }, 1000);
-                }
+                setTimeout(() => {
+                    navigate(location?.state ? location.state : "/")
+                }, 1000);
+              
             })
             .catch(error => {
                 console.log(error.message);

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Banner from '../banner/Banner';
 import CraftItemsSection from '../craftItemsSection/CraftItemsSection';
@@ -8,16 +8,25 @@ import Sub from '../subscribed/Sub';
 import ScrollToTop from "react-scroll-to-top";
 import { AuthContext } from '../../components/provider/AuthProvider';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
+import 'aos/dist/aos.css';
 
 AOS.init();
 
 const Home = () => {
+    const [data, setData] = useState([])
     const { loading } = useContext(AuthContext)
 
-    const data = useLoaderData()
+    const allItems = useLoaderData()
+
+
+    useEffect(() => {
+        setData(allItems)
+    }, [])
+
+
     if (loading) {
-        return <div className="w-16 h-16 flex justify-center items-center my-20 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
+        console.log("loading", loading);
+        return <div className="w-16 h-16 flex justify-center items-center my-40 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
     }
 
     return (
@@ -26,28 +35,16 @@ const Home = () => {
                 color='red'
             />
             <section className='px-0'>
-                <Banner />
+                <Banner data={data} />
             </section>
 
             {/* CraftItemsSection */}
             <section>
-                <div className=' my-5 '>
-                    <div>
-                        <p className='text-center text-3xl font-semibold'>Discover Our All</p>
-                        <h1 className=' text-2xl  text-center font-bold'>Craft Items</h1>
-                        <p className='border-2 border-green-400 w-24 mx-auto '
-                            data-aos="zoom-in"
-                            data-aos-delay="50"
-                            data-aos-duration="1000"
-                        ></p>
-                    </div>
-                    <div>
-                        <CraftItemsSection data={data} />
-                    </div>
+                <div>
+                    <CraftItemsSection data={data} />
                 </div>
-            </section>
 
-        
+            </section>
 
             {/* Subscribe section */}
             <section>
