@@ -1,17 +1,44 @@
-## SR Painting
+#### Project overview:
+This project is about developing an Art & Craft Store website centered around a specific category such as Painting and Drawing, Sculpture and Modeling, etc. Key features include responsive design, user authentication, private routes for managing craft items, and a dark/light theme toggle. It emphasizes creative data presentation and CRUD operations with user notifications for a seamless user experience.
 
-Click here for see my website:  https://stalwart-tarsier-18881f.netlify.app/  
+#### Main Features:
+1. Category-Centric Design
+2. User-Centric Functionality
+3. Authentication
 
+Live Link:   
+- [SR-painting](https://sr-painting.netlify.app/)
 
-# In my project, I have implemented which packages.
-## Css FrameWork :
+Project Setup Instructions:
+1. Clone the Repository:
+
+git clone https://github.com/Ratan-code-SR/sr-painting-home-shop-client.git
+
+cd your-project
+
+2. Install Dependencies:
+npm install
+
+3. Set Up Environment Variables:
+Create a .env file in the root directory.
+Add the following variables:
+VITE_APIKEY,
+VITE_AUTHDOMAIN,
+VITE_PROJECTID,
+VITE_STORAGEBUCKET,
+VITE_MESSAGINGSENDERID,
+VITE_APPID,
+
+4. Build for Production (Optional):
+npm run build
+
+### Css FrameWork :
 - [Daisy UI](https://daisyui.com/)
 - [Mamba UI](https://mambaui.com/components)
 - [TailwindCSS](https://tailwindcss.com/)
 
 
-
-## NPM Packages :
+### NPM Packages :
 - [React-toastify](https://www.npmjs.com/package/react-toastify)
 - [React-Router](https://reactrouter.com/en/main)
 - [Prop-Types](https://www.npmjs.com/package/prop-types)
@@ -24,12 +51,12 @@ Click here for see my website:  https://stalwart-tarsier-18881f.netlify.app/
 - [React Simple type writer](https://www.npmjs.com/package/react-simple-typewriter)
 
 
-
-##  I have implemented Authentication system this package
+### Authentication system
 - [Firebase](https://firebase.google.com/)
 
-## Backend Technology Node js Framework Express
+### Backend Technology
 - [Express js](https://expressjs.com/)
 
-## Database MongoDB
+### Database
 - [MongoDB Atlas ](https://www.mongodb.com/atlas/database)
+
