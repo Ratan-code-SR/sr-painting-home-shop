@@ -22,16 +22,18 @@ npm install
 3. Set Up Environment Variables:
 Create a .env file in the root directory.
 Add the following variables:
-VITE_APIKEY,
-VITE_AUTHDOMAIN,
-VITE_PROJECTID,
-VITE_STORAGEBUCKET,
-VITE_MESSAGINGSENDERID,
-VITE_APPID,
+apiKey,
+authDomain,
+projectId,
+storageBucket,
+messagingSenderId,
+appId,
 
 4. Build for Production (Optional):
 npm run build
-
+5. Clone the server-side repository and run the application
+- [Server side](https://github.com/Ratan-code-SR/sr-painting-home-shop-server)
+- 
 ### Css FrameWork :
 - [Daisy UI](https://daisyui.com/)
 - [Mamba UI](https://mambaui.com/components)
